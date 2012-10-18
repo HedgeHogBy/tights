@@ -112,7 +112,7 @@ textarea {
 
     }
 
-    #category-description{
+    #category-details{
         position: relative;
     }
 
@@ -140,9 +140,12 @@ textarea {
 
         #tights-size{
             height: 91px;
-            width: 155px;
             background: url('gfx/tab_misure.gif') no-repeat;
             background-size: contain;
+        }
+
+        #tights-description{
+            text-align: right;
         }
 
 
