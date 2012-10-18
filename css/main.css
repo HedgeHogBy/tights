@@ -18,11 +18,6 @@ textarea {
     color: #222;
 }
 
-body {
-    font-size: 1em;
-    line-height: 1.4;
-}
-
 /*
  * Remove text-shadow in selection highlight: h5bp.com/i
  * These selection declarations have to be separate.
@@ -93,13 +88,96 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+#main{
+    margin: 30px auto;
+}
+
+    #category-menu{
+
+    }
+
+        #category-menu h3{
+            line-height: 1em;
+            font-size: 1em;
+            font-weight: normal;
+            text-transform: uppercase;
+            margin: 10px 0 0;
+        }
+
+        #category-menu .sub-categories{
+            padding-left: 10px;
+        }
+
+    #tights-image{
+
+    }
+
+    #category-description{
+        position: relative;
+    }
+
+        #category-submenu{
+            position: absolute;
+            bottom: 0;
+        }
+
+        #category-submenu li{
+            height: 102px;
+            width: 79px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            display: inline-block;
+        }
+
+    #tights-meta{
+        margin-top: 20px;
+        background: #fff;
+        background: -moz-linear-gradient(left, #fff 0%, #ececec 100%);
+        background: -webkit-gradient(linear, left top, right top, color-stop(0%,#fff), color-stop(100%,#ececec));
+        background: -webkit-linear-gradient(left, #fff 0%, #ececec 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFFFFF', endColorstr='#ececec',GradientType=1 );
+    }
+
+        #tights-size{
+            height: 91px;
+            width: 155px;
+            background: url('gfx/tab_misure.gif') no-repeat;
+            background-size: contain;
+        }
 
 
 
 
 
+/* Large desktop */
+@media (min-width: 1200px) {
+    #main{
+        width: 1280px;
+    }
+}
 
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) {
+    #main{
+        width: 960px;
+    }
+}
 
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+    #main{
+        margin: 20px auto;
+        width: 760px;
+    }
+}
+
+/* Landscape phones and down */
+@media (max-width: 480px) {
+    #main{
+        margin: 10px auto;
+        width: 480px;
+    }
+}
 
 
 
