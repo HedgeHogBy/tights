@@ -92,42 +92,52 @@ textarea {
     margin: 30px auto;
 }
 
-    #category-menu{
-
+    #categories{
+        padding: 0 0 20px 0;
+        border-bottom: 2px solid #333;
     }
 
-        #category-menu h3{
-            line-height: 1em;
-            font-size: 1em;
-            font-weight: normal;
-            text-transform: uppercase;
-            margin: 10px 0 0;
+        #category-menu{
+
         }
 
-        #category-menu .sub-categories{
-            padding-left: 10px;
+            #category-menu h3{
+                line-height: 1em;
+                font-size: 1em;
+                font-weight: normal;
+                text-transform: uppercase;
+                margin: 10px 0 0;
+            }
+
+            #category-menu .sub-categories{
+                padding-left: 10px;
+            }
+
+        #tights-image{
+
         }
 
-    #tights-image{
-
-    }
-
-    #category-details{
-        position: relative;
-    }
-
-        #category-submenu{
-            position: absolute;
-            bottom: 0;
+        #category-details{
+            position: relative;
+            min-height: 500px;
         }
 
-        #category-submenu li{
-            height: 102px;
-            width: 79px;
-            background-size: contain;
-            background-repeat: no-repeat;
-            display: inline-block;
-        }
+            #category-details .text{
+                padding: 20px 0 0 0;
+            }
+
+            #category-submenu{
+                position: absolute;
+                bottom: 0;
+            }
+
+            #category-submenu li{
+                height: 102px;
+                width: 79px;
+                background-size: contain;
+                background-repeat: no-repeat;
+                display: inline-block;
+            }
 
     #tights-meta{
         margin-top: 20px;
@@ -146,6 +156,7 @@ textarea {
 
         #tights-description{
             text-align: right;
+            padding-right: 10px;
         }
 
 
