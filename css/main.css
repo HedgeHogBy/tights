@@ -90,7 +90,7 @@ textarea {
 
 #main{
     margin: 0 auto;
-    width: 80%;
+    width: 95%;
 }
 
     #wrapper{
@@ -123,15 +123,13 @@ textarea {
 
             #category .text{
                 padding: 20px 0 20px 0;
-                border-bottom: 2px solid #333;
-                margin: 0 0 20px 0;
             }
 
-            #tights-submenu{
+            #category #tights-submenu{
 
             }
 
-            #tights-submenu li{
+            #category #tights-submenu li{
                 height: 102px;
                 width: 79px;
                 background-size: contain;
@@ -139,20 +137,25 @@ textarea {
                 display: inline-block;
             }
 
-            #tights-meta{
+            #category aside{
                 margin: 0;
-                background: #fff;
-                background: -moz-linear-gradient(right, #fff 30%, #ececec 100%);
-                background: -webkit-gradient(linear, right top, left top, color-stop(30%,#fff), color-stop(100%,#ececec));
-                background: -webkit-linear-gradient(right, #fff 30%, #ececec 100%);
-                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFFFFF', endColorstr='#ececec',GradientType=1 );
+                border-top: 2px solid #333;
+                padding: 20px 0 0 0;
             }
 
-                #tights-size{
+                #category #tights-meta{
+                    background: #fff;
+                    background: -moz-linear-gradient(right, #fff 30%, #ececec 100%);
+                    background: -webkit-gradient(linear, right top, left top, color-stop(30%,#fff), color-stop(100%,#ececec));
+                    background: -webkit-linear-gradient(right, #fff 30%, #ececec 100%);
+                    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFFFFF', endColorstr='#ececec',GradientType=1 );
+                }
+
+                #category #tights-meta #tights-size{
                     /*text-align: right;*/
                 }
 
-                #tights-description{
+                #category #tights-meta #tights-description{
 
                 }
 
@@ -163,7 +166,7 @@ textarea {
 /* Large desktop */
 @media (min-width: 1200px) {
     #main{
-
+        width: 80%;
     }
 }
 
