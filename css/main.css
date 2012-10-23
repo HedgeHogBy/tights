@@ -89,13 +89,12 @@ textarea {
    ========================================================================== */
 
 #main{
-    margin: 30px auto;
-    width: 90%;
+    margin: 0 auto;
+    width: 80%;
 }
 
-    #category{
-        padding: 0 0 20px 0;
-        border-bottom: 2px solid #333;
+    #wrapper{
+        margin: 30px 0 0;
     }
 
         #category-menu{
@@ -118,21 +117,21 @@ textarea {
 
         }
 
-        #category-details{
-            position: relative;
-            min-height: 500px;
+        #category{
+            padding: 0 0 20px 0;
         }
 
-            #category-details .text{
-                padding: 20px 0 0 0;
+            #category .text{
+                padding: 20px 0 20px 0;
+                border-bottom: 2px solid #333;
+                margin: 0 0 20px 0;
             }
 
-            #category-submenu{
-                position: absolute;
-                bottom: 0;
+            #tights-submenu{
+
             }
 
-            #category-submenu li{
+            #tights-submenu li{
                 height: 102px;
                 width: 79px;
                 background-size: contain;
@@ -140,25 +139,22 @@ textarea {
                 display: inline-block;
             }
 
-    #tights-meta{
-        margin: 20px 0 0 0;
-        background: #fff;
-        background: -moz-linear-gradient(left, #fff 0%, #ececec 100%);
-        background: -webkit-gradient(linear, left top, right top, color-stop(0%,#fff), color-stop(100%,#ececec));
-        background: -webkit-linear-gradient(left, #fff 0%, #ececec 100%);
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFFFFF', endColorstr='#ececec',GradientType=1 );
-    }
+            #tights-meta{
+                margin: 0;
+                background: #fff;
+                background: -moz-linear-gradient(right, #fff 30%, #ececec 100%);
+                background: -webkit-gradient(linear, right top, left top, color-stop(30%,#fff), color-stop(100%,#ececec));
+                background: -webkit-linear-gradient(right, #fff 30%, #ececec 100%);
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFFFFF', endColorstr='#ececec',GradientType=1 );
+            }
 
-        #tights-size{
-            height: 91px;
-            background: url('gfx/tab_misure.gif') no-repeat;
-            background-size: contain;
-        }
+                #tights-size{
+                    /*text-align: right;*/
+                }
 
-        #tights-description{
-            text-align: right;
-            padding-right: 10px;
-        }
+                #tights-description{
+
+                }
 
 
 
@@ -174,21 +170,29 @@ textarea {
 /* Portrait tablet to landscape and desktop */
 @media (min-width: 768px) and (max-width: 979px) {
     #main{
-
+        width: 100%;
     }
 }
 
 /* Landscape phone to portrait tablet */
 @media (max-width: 767px) {
     #main{
-        margin: 20px auto;
+        width: 100%;
+    }
+
+    #wrapper{
+        margin: 20px 0 0;
     }
 }
 
 /* Landscape phones and down */
 @media (max-width: 480px) {
     #main{
-        margin: 10px auto;
+        width: 100%;
+    }
+
+    #wrapper{
+        margin: 10px 0 0;
     }
 }
 
