@@ -90,6 +90,7 @@ textarea {
 
 #main{
     margin: 30px auto;
+    width: 90%;
 }
 
     #categories{
@@ -140,7 +141,7 @@ textarea {
             }
 
     #tights-meta{
-        margin-top: 20px;
+        margin: 20px 0 0 0;
         background: #fff;
         background: -moz-linear-gradient(left, #fff 0%, #ececec 100%);
         background: -webkit-gradient(linear, left top, right top, color-stop(0%,#fff), color-stop(100%,#ececec));
@@ -166,14 +167,14 @@ textarea {
 /* Large desktop */
 @media (min-width: 1200px) {
     #main{
-        width: 1280px;
+
     }
 }
 
 /* Portrait tablet to landscape and desktop */
 @media (min-width: 768px) and (max-width: 979px) {
     #main{
-        width: 960px;
+
     }
 }
 
@@ -181,7 +182,6 @@ textarea {
 @media (max-width: 767px) {
     #main{
         margin: 20px auto;
-        width: 760px;
     }
 }
 
@@ -189,7 +189,6 @@ textarea {
 @media (max-width: 480px) {
     #main{
         margin: 10px auto;
-        width: 480px;
     }
 }
 
