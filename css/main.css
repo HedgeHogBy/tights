@@ -87,6 +87,18 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+body {
+    font-family: 'Marmelad', sans-serif;
+    /*font-family: 'Scada', sans-serif;*/
+    color: #555;
+    background-color: #ffffff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #444;
+    font-family: 'Cuprum', sans-serif;
+    font-style: italic;
+}
 
 #main{
     margin: 0 auto;
@@ -104,25 +116,28 @@ textarea {
             #category-menu h3{
                 line-height: 1em;
                 font-size: 1em;
-                font-weight: normal;
                 text-transform: uppercase;
                 margin: 10px 0 0;
             }
 
             #category-menu .sub-categories{
-                padding-left: 10px;
+                padding: 0 0 0 10px;
+                margin: 0 0 20px;
+
             }
 
-        #tights-image{
-
-        }
+            #category-menu .sub-categories li a{
+                text-decoration: none;
+                color: #333;
+                border-bottom: 1px dotted #333;
+            }
 
         #category{
             padding: 0 0 20px 0;
         }
 
             #category .text{
-                padding: 20px 0 20px 0;
+                padding: 5px 0 20px 0;
             }
 
             #category #tights-submenu{
@@ -143,24 +158,25 @@ textarea {
                 padding: 20px 0 0 0;
             }
 
+                #category #tights-image{
+                    margin: 0 0 15px;
+                }
+
                 #category #tights-meta{
-                    background: #fff;
-                    background: -moz-linear-gradient(right, #fff 30%, #ececec 100%);
-                    background: -webkit-gradient(linear, right top, left top, color-stop(30%,#fff), color-stop(100%,#ececec));
-                    background: -webkit-linear-gradient(right, #fff 30%, #ececec 100%);
-                    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFFFFF', endColorstr='#ececec',GradientType=1 );
                 }
 
                 #category #tights-meta #tights-size{
-                    /*text-align: right;*/
+                    padding: 2% 0 5%;
                 }
 
                 #category #tights-meta #tights-description{
-
+                    background: #fff;
+                    background: -moz-linear-gradient(right, #fff 0%, #ececec 100%);
+                    background: -webkit-gradient(linear, right top, left top, color-stop(0%,#fff), color-stop(100%,#ececec));
+                    background: -webkit-linear-gradient(right, #fff 0%, #ececec 100%);
+                    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFFFFF', endColorstr='#ececec',GradientType=1 );
+                    padding: 2% 0 5%;
                 }
-
-
-
 
 
 /* Large desktop */
@@ -183,9 +199,9 @@ textarea {
         width: 100%;
     }
 
-    #wrapper{
-        margin: 20px 0 0;
-    }
+        #wrapper{
+            margin: 20px 0 0;
+        }
 }
 
 /* Landscape phones and down */
@@ -194,9 +210,17 @@ textarea {
         width: 100%;
     }
 
-    #wrapper{
-        margin: 10px 0 0;
-    }
+        #wrapper{
+            margin: 10px 0 0;
+        }
+
+        #category #tights-meta #tights-description{
+            padding: 10px 0 15px;
+        }
+
+        #category #tights-meta #tights-size{
+            padding: 20px 0 10px;
+        }
 }
 
 
