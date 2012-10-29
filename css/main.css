@@ -187,16 +187,22 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Portrait tablet to landscape and desktop */
 @media (min-width: 768px) and (max-width: 979px) {
-    #main{
-        width: 100%;
+    /*hack start*/
+    .row-fluid .span10,
+    .row-fluid .span9 {
+      width: 74.30939226519337%;
+      *width: 74.25620077583166%;
     }
+
+    .row-fluid .span3, .row-fluid .span2 {
+      width: 22.92817679558011%;
+      *width: 22.87498530621841%;
+    }
+    /*hack end*/
 }
 
 /* Landscape phone to portrait tablet */
 @media (max-width: 767px) {
-    #main{
-        width: 100%;
-    }
 
         #wrapper{
             margin: 20px 0 0;
