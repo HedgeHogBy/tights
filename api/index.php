@@ -4,16 +4,16 @@ require 'Slim/Slim.php';
 
 $app = new Slim();
 
-$app->get('/wines', 'getWines');
-$app->get('/wines/:id',	'getWine');
-$app->get('/wines/search/:query', 'findByName');
-$app->post('/wines', 'addWine');
-$app->put('/wines/:id', 'updateWine');
-$app->delete('/wines/:id', 'deleteWine');
+$app->get('/tights', 'getTights');
+$app->get('/tights/:id',	'getItem');
+$app->get('/tights/search/:query', 'findByName');
+$app->post('/tights', 'addItem');
+$app->put('/tights/:id', 'updateItem');
+$app->delete('/tights/:id', 'deleteItem');
 
 $app->run();
 
-function getWines() {
+function getTights() {
 	$sql = "select * FROM wine ORDER BY name";
 	try {
 		$db = getConnection();
@@ -26,7 +26,7 @@ function getWines() {
 	}
 }
 
-function getWine($id) {
+function getItem($id) {
 	$sql = "SELECT * FROM wine WHERE id=:id";
 	try {
 		$db = getConnection();
@@ -41,7 +41,7 @@ function getWine($id) {
 	}
 }
 
-function addWine() {
+function addItem() {
 	error_log('addWine\n', 3, '/var/tmp/php.log');
 	$request = Slim::getInstance()->request();
 	$wine = json_decode($request->getBody());
@@ -65,7 +65,7 @@ function addWine() {
 	}
 }
 
-function updateWine($id) {
+function updateItem($id) {
 	$request = Slim::getInstance()->request();
 	$body = $request->getBody();
 	$wine = json_decode($body);
@@ -88,7 +88,7 @@ function updateWine($id) {
 	}
 }
 
-function deleteWine($id) {
+function deleteItem($id) {
 	$sql = "DELETE FROM wine WHERE id=:id";
 	try {
 		$db = getConnection();
