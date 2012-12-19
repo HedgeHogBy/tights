@@ -7,6 +7,7 @@ Slim::registerAutoloader();
 
 $app = new Slim();
 
+//-----tights-----
 $app->get('/tights', 'getTights');
 $app->get('/tights/:id',	'getItem');
 $app->get('/tights/search/:query', 'findByName');
@@ -14,31 +15,47 @@ $app->post('/tights', 'addItem');
 $app->put('/tights/:id', 'updateItem');
 $app->delete('/tights/:id', 'deleteItem');
 
+//-----collections-----
+$app->get('/collections', 'getCollections');
+
+//-----colors-----
+$app->get('/colors', 'getColors');
+
+//-----features-----
+$app->get('/features', 'getFeatures');
+
+//-----types-----
+$app->get('/types', 'getTypes');
+
+
 $app->run();
 
+
+//-----tights-----
+
 function getTights() {
-	$sql = "select * FROM wine ORDER BY name";
+	$sql = "select * FROM th_tights ORDER BY name";
 	try {
 		$db = getConnection();
-		$stmt = $db->query($sql);  
-		$wines = $stmt->fetchAll(PDO::FETCH_OBJ);
+		$stmt = $db->query($sql);
+		$tights = $stmt->fetchAll(PDO::FETCH_OBJ);
 		$db = null;
-		echo json_encode($wines);
+		echo json_encode($tights);
 	} catch(PDOException $e) {
-		echo '{"error":{"text":'. $e->getMessage() .'}}'; 
+		echo '{"error":{"text":'. $e->getMessage() .'}}';
 	}
 }
 
 function getItem($id) {
-	$sql = "SELECT * FROM wine WHERE id=:id";
+	$sql = "SELECT * FROM th_tights WHERE id=:id";
 	try {
 		$db = getConnection();
 		$stmt = $db->prepare($sql);  
 		$stmt->bindParam("id", $id);
 		$stmt->execute();
-		$wine = $stmt->fetchObject();  
+		$tights = $stmt->fetchObject();
 		$db = null;
-		echo json_encode($wine); 
+		echo json_encode($tights);
 	} catch(PDOException $e) {
 		echo '{"error":{"text":'. $e->getMessage() .'}}'; 
 	}
@@ -92,7 +109,7 @@ function updateItem($id) {
 }
 
 function deleteItem($id) {
-	$sql = "DELETE FROM wine WHERE id=:id";
+	$sql = "DELETE FROM th_tights WHERE id=:id";
 	try {
 		$db = getConnection();
 		$stmt = $db->prepare($sql);  
@@ -105,29 +122,94 @@ function deleteItem($id) {
 }
 
 function findByName($query) {
-	$sql = "SELECT * FROM wine WHERE UPPER(name) LIKE :query ORDER BY name";
+	$sql = "SELECT * FROM th_tights WHERE UPPER(name) LIKE :query ORDER BY name";
 	try {
 		$db = getConnection();
 		$stmt = $db->prepare($sql);
 		$query = "%".$query."%";  
 		$stmt->bindParam("query", $query);
 		$stmt->execute();
-		$wines = $stmt->fetchAll(PDO::FETCH_OBJ);
+		$tights = $stmt->fetchAll(PDO::FETCH_OBJ);
 		$db = null;
-		echo '{"wine": ' . json_encode($wines) . '}';
+		echo '{"tights": ' . json_encode($tights) . '}';
 	} catch(PDOException $e) {
 		echo '{"error":{"text":'. $e->getMessage() .'}}'; 
 	}
 }
+
+//-----collections-----
+function getCollections() {
+	$sql = "select * FROM th_collections ORDER BY name";
+	try {
+		$db = getConnection();
+		$stmt = $db->query($sql);
+		$collections = $stmt->fetchAll(PDO::FETCH_OBJ);
+		$db = null;
+		echo json_encode($collections);
+	} catch(PDOException $e) {
+		echo '{"error":{"text":'. $e->getMessage() .'}}';
+	}
+}
+
+//-----colors-----
+function getColors() {
+	$sql = "select * FROM th_colors ORDER BY name";
+	try {
+		$db = getConnection();
+		$stmt = $db->query($sql);
+		$colors = $stmt->fetchAll(PDO::FETCH_OBJ);
+		$db = null;
+		echo json_encode($colors);
+	} catch(PDOException $e) {
+		echo '{"error":{"text":'. $e->getMessage() .'}}';
+	}
+}
+
+//-----features-----
+function getFeatures() {
+	$sql = "select * FROM th_feature ORDER BY name";
+	try {
+		$db = getConnection();
+		$stmt = $db->query($sql);
+		$features = $stmt->fetchAll(PDO::FETCH_OBJ);
+		$db = null;
+		echo json_encode($features);
+	} catch(PDOException $e) {
+		echo '{"error":{"text":'. $e->getMessage() .'}}';
+	}
+}
+
+//-----types-----
+function getTypes() {
+	$sql = "select * FROM th_types ORDER BY name";
+	try {
+		$db = getConnection();
+		$stmt = $db->query($sql);
+		$types = $stmt->fetchAll(PDO::FETCH_OBJ);
+		$db = null;
+		echo json_encode($types);
+	} catch(PDOException $e) {
+		echo '{"error":{"text":'. $e->getMessage() .'}}';
+	}
+}
+
+
+
+
+
+
+
+
+
+
 
 function getConnection() {
 	$dbhost="localhost";
 	$dbuser="root";
 	$dbpass="";
 	$dbname="tights";
-	$dbh = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);	
+	$dbh = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);
 	$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	return $dbh;
 }
-
 ?>
