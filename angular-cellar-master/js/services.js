@@ -1,5 +1,5 @@
-angular.service('Wine', function ($resource) {
-    return $resource('api/wines/:wineId', {}, {
+angular.service('Tights', function ($resource) {
+    return $resource('api/all-tights/:tightsId', {}, {
         update: {method:'PUT'}
     });
 });

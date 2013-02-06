@@ -8,12 +8,12 @@ Slim::registerAutoloader();
 $app = new Slim();
 
 //-----tights-----
-$app->get('/tights', 'getTights');
-$app->get('/tights/:id',	'getItem');
-$app->get('/tights/search/:query', 'findByName');
-$app->post('/tights', 'addItem');
-$app->put('/tights/:id', 'updateItem');
-$app->delete('/tights/:id', 'deleteItem');
+$app->get('/all-tights', 'getAllTights');
+$app->get('/all-tights/:id',	'getItem');
+$app->get('/all-tights/search/:query', 'findByName');
+$app->post('/all-tights', 'addItem');
+$app->put('/all-tights/:id', 'updateItem');
+$app->delete('/all-tights/:id', 'deleteItem');
 
 //-----collections-----
 $app->get('/collections', 'getCollections');
@@ -33,7 +33,7 @@ $app->run();
 
 //-----tights-----
 
-function getTights() {
+function getAllTights() {
 	$sql = "select * FROM th_tights ORDER BY name";
 	try {
 		$db = getConnection();

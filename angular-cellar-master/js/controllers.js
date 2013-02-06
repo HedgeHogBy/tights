@@ -1,49 +1,47 @@
 function RouteCtrl($route) {
 
-    var self = this;
+    var that = this;
 
-    $route.when('/wines', {template:'tpl/welcome.html'});
+    $route.when('/all-tights', {template:'tpl/welcome.html'});
 
-    $route.when('/wines/:wineId', {template:'tpl/wine-details.html', controller:WineDetailCtrl});
+    $route.when('/all-tights/:tightsId', {template:'tpl/tights-details.html', controller:TightsDetailCtrl});
 
-    $route.otherwise({redirectTo:'/wines'});
+    $route.otherwise({redirectTo:'/all-tights'});
 
     $route.onChange(function () {
-        self.params = $route.current.params;
+        that.params = $route.current.params;
     });
 
     $route.parent(this);
 
-    this.addWine = function () {
-        window.location = "#/wines/add";
+    this.addTights = function () {
+        window.location = "#/all-tights/add";
     };
 
 }
 
-function WineListCtrl(Wine) {
-
-    this.wines = Wine.query();
-
+function TightsListCtrl(Tights) {
+    this.allTights = Tights.query();
 }
 
-function WineDetailCtrl(Wine) {
+function TightsDetailCtrl(Tights) {
 
-    this.wine = Wine.get({wineId:this.params.wineId});
+    this.tights = Tights.get({tightsId:this.params.tightsId});
 
 
-    this.saveWine = function () {
-        if (this.wine.id > 0)
-            this.wine.$update({wineId:this.wine.id});
+    this.saveTights = function () {
+        if (this.tights.id > 0)
+            this.tights.$update({tightsId:this.tights.id});
         else
-            this.wine.$save();
-        window.location = "#/wines";
-    }
+            this.tights.$save();
+        window.location = "#/tights";
+    };
 
-    this.deleteWine = function () {
-        this.wine.$delete({wineId:this.wine.id}, function() {
-            alert('Wine ' + wine.name + ' deleted')
-            window.location = "#/wines";
+    this.deleteTights = function () {
+        this.tights.$delete({tightsId:this.tights.id}, function() {
+            alert('Tights ' + tights.name + ' deleted');
+            window.location = "#/tights";
         });
-    }
+    };
 
 }
