@@ -8,8 +8,8 @@ Slim::registerAutoloader();
 $app = new Slim();
 
 //-----tights-----
-$app->get('/all-tights', 'getAllTights');
-$app->get('/all-tights/:id',	'getItem');
+$app->get('/all-tights', 'getItems');
+$app->get('/all-tights/:id', 'getItem');
 $app->get('/all-tights/search/:query', 'findByName');
 $app->post('/all-tights', 'addItem');
 $app->put('/all-tights/:id', 'updateItem');
@@ -25,7 +25,7 @@ $app->get('/colors', 'getColors');
 $app->get('/features', 'getFeatures');
 
 //-----types-----
-$app->get('/types', 'getTypes');
+$app->get('/types', 'getCategories');
 
 
 $app->run();
@@ -33,7 +33,7 @@ $app->run();
 
 //-----tights-----
 
-function getAllTights() {
+function getItems() {
 	$sql = "select * FROM th_tights ORDER BY name";
 	try {
 		$db = getConnection();
@@ -180,8 +180,8 @@ function getFeatures() {
 }
 
 //-----types-----
-function getTypes() {
-	$sql = "select * FROM th_types ORDER BY name";
+function getCategories() {
+	$sql = "select * FROM th_category ORDER BY name";
 	try {
 		$db = getConnection();
 		$stmt = $db->query($sql);
