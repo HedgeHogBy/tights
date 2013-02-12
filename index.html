@@ -26,7 +26,12 @@
         <div id="main">
             <div id="wrapper" class="row-fluid">
                 <nav class="span2">
-                    <ul id="category-menu" class="unstyled">
+                    <ul ng:controller="TightsListCtrl">
+                        <li ng:repeat="tights in allTights">
+                            <a href='#/all-tights/{{ tights.id }}'>{{ tights.name }}</a>
+                        </li>
+                    </ul>
+                    <!--<ul id="category-menu" class="unstyled">
                         <li>
                             <h3>BASIC LINE</h3>
                             <ul class="sub-categories unstyled">
@@ -58,7 +63,7 @@
                                 <li><a href="#">Calzini</a></li>
                             </ul>
                         </li>
-                    </ul>
+                    </ul>-->
                 </nav>
                 <article id="category" class="span10">
                     <header>
