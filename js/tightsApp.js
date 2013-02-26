@@ -1,6 +1,6 @@
-var app = angular.module('tightsApp', []);
+var App = angular.module('tightsApp', []);
 
-module.config(function ($routeProvider, $locationProvider) {
+App.config(function ($routeProvider, $locationProvider) {
     $locationProvider.html5Mode(true);
 
     $routeProvider.
@@ -9,26 +9,49 @@ module.config(function ($routeProvider, $locationProvider) {
         otherwise({redirectTo : "/all-tights"});
 });
 
-app.$controller( 'AppCtrl', function AppCtrl($scope) {
-    $scope.name = 'Guest';
+App.controller('AppCtrl', function AppCtrl($scope) {
+
+});
+
+App.controller('TightsDetailCtrl', function TightsDetailCtrl(Tights) {
+    this.tights = Tights.get({tightsId:this.params.tightsId});
 });
 
 
+App.controller('CollectionsMenuCtrl', function CollectionsMenuCtrl($scope) {
+    $scope.collections = [
+        {
+            name: 'BASIC LINE',
+            categories: [
+                {name:'Lycra 10-20 den'},
+                {name:'Lycra 30-40 den'},
+                {name:'Microfibra 50-80 den'},
+                {name:'Modellanti'},
+                {name:'Autoreggenti'}
+            ]
+        },
+        {
+            name: 'CITY LINE',
+            categories: [
+                {name:'Lycra 10-20 den'},
+                {name:'Lycra 30-40 den'},
+                {name:'Microfibra 50-80 den'},
+                {name:'Coprenti 100-200 den'},
+                {name:'Modellanti'},
+                {name:'Fashion'},
+                {name:'Gambaletti'},
+                {name:'Autoreggenti'},
+                {name:'Calzini'},
+                {name:'Leggings'}
+            ]
+        },
+        {
+            name: 'CITY LINE MEN',
+            categories: [
+                {name:'Leggings'}
+            ]
+        }
+    ];
+});
 
 
-
-
-
-
-
-
-function TightsListCtrl(Tights) {
-    this.allTights = Tights.query();
-}
-
-function TightsDetailCtrl(Tights) {
-
-    this.tights = Tights.get({tightsId:this.params.tightsId});
-
-
-}
