@@ -28,7 +28,7 @@
                 <nav class="span2">
                     <div ng-controller="AppCtrl"></div>
                     <ul ng-controller="CollectionsMenuCtrl" class="unstyled">
-                        <li ng-repeat="collection in collections">
+                        <li ng-repeat="collection in mainMenuItems">
                             <h3>{{collection.name}}</h3>
                             <ul class="sub-categories unstyled">
                                 <li ng-repeat="category in collection.categories"><a href="#">{{category.name}}</a></li>
