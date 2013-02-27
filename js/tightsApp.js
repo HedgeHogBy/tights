@@ -2,6 +2,9 @@ var App = angular.module('tightsApp', []);
 
 App.config(function ($routeProvider, $locationProvider) {
     $routeProvider.
+        when("/", {
+            template: '<h1> Добро пожаловать </h1>'
+        }).
         when("/collection/:collectionId/:categoryId", {
             controller : "CollectionDetailCtrl",
             templateUrl: 'collection-detail.html'
