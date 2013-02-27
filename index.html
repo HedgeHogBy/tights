@@ -26,65 +26,18 @@
         <div id="main">
             <div id="wrapper" class="row-fluid">
                 <nav class="span2">
-                    <div ng-controller="AppCtrl"></div>
                     <ul ng-controller="CollectionsMenuCtrl" class="unstyled">
                         <li ng-repeat="collection in mainMenuItems">
                             <h3>{{collection.name}}</h3>
                             <ul class="sub-categories unstyled">
-                                <li ng-repeat="category in collection.categories"><a href="#">{{category.name}}</a></li>
+                                <li ng-repeat="category in collection.categories"><a href="http://pcardin.by/collection/{{collection.id}}/{{category.id}}">{{category.name}}</a></li>
                             </ul>
                         </li>
                     </ul>
-                    <!--<ul id="category-menu" class="unstyled">
-                        <li>
-                            <h3>BASIC LINE</h3>
-                            <ul class="sub-categories unstyled">
-                                <li><a href="#">Lycra 10-20 den</a></li>
-                                <li><a href="#">Lycra 30-40 den</a></li>
-                                <li><a href="#">Microfibra 50-80 den</a></li>
-                                <li><a href="#">Modellanti</a></li>
-                                <li><a href="#">Autoreggenti</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <h3>CITY LINE</h3>
-                            <ul class="sub-categories unstyled">
-                                <li><a href="#">Lycra 10-20 den</a></li>
-                                <li><a href="#">Lycra 30-40 den</a></li>
-                                <li><a href="#">Microfibra 50-80 den</a></li>
-                                <li><a href="#">Coprenti 100-200 den</a></li>
-                                <li><a href="#">Modellanti</a></li>
-                                <li><a href="#">Fashion</a></li>
-                                <li><a href="#">Autoreggenti</a></li>
-                                <li><a href="#">Gambaletti</a></li>
-                                <li><a href="#">Calzini</a></li>
-                                <li><a href="#">Leggings</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <h3>CITY LINE MEN</h3>
-                            <ul class="sub-categories unstyled">
-                                <li><a href="#">Calzini</a></li>
-                            </ul>
-                        </li>
-                    </ul>-->
                 </nav>
                 <article id="category" class="span10">
-                    <header>
-                        <h1>LIGNE ROSÉE.</h1>
-                    </header>
-                    <div class="text">
-                        Calze e collant di questa linea sono realizzati con filati di alta qualità. Opachi ed elasticizzati. Vestono alla perfezione, dando sostegno alla gamba. Comodi, morbidi e setificati. I COLLANT DELLA LINEA ROSE hanno cuciture piatte, tassello in cotone.
-                    </div>
-                    <nav>
-                        <h3>Lycra 30-40 den</h3>
-                         <ul id="tights-submenu" class="unstyled">
-                             <li style="background-image: url('./img/LR_Ly3040_01evi_mn.jpg');"></li>
-                             <li style="background-image: url('./img/LR_Ly3040_01evi_mn.jpg');"></li>
-                             <li style="background-image: url('./img/LR_Ly3040_01evi_mn.jpg');"></li>
-                         </ul>
-                     </nav>
-                    <aside class="span12">
+                    <div ng-view></div>
+                    <aside class="span12" ng-controller="TightsDetailCtrl">
                         <div id="tights-image" class="span4">
                             <img src="img/LR_Ly3040_01evi.jpg"/>
                         </div>

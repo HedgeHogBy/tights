@@ -1,55 +1,58 @@
 var App = angular.module('tightsApp', []);
 
 App.config(function ($routeProvider, $locationProvider) {
-    $locationProvider.html5Mode(true);
-
     $routeProvider.
-        when("/all-tights", {templateUrl: "tpl/welcome.html"}).
-        when("/all-tights/:tightsId", {templateUrl: "tpl/tights-details.html", controller : "TightsDetailCtrl"}).
-        otherwise({redirectTo : "/all-tights"});
+        when("/collection/:collectionId/:categoryId", {
+            controller : "CollectionDetailCtrl",
+            templateUrl: 'collection-detail.html'
+        }).
+        when("/all-tights/:tightsId", {controller : "TightsDetailCtrl"}).
+        otherwise({redirectTo : "/"});
+
+    $locationProvider.html5Mode(true);
 });
 
 App.factory('Categories', function(){
     return {
         0: {
             id: 1,
-            name:'Lycra 10-20 den'
+            name:'Лайкра 10-20 ден'
         },
         1: {
             id: 2,
-            name:'Lycra 30-40 den'
+            name:'Лайкра 30-40 ден'
         },
         2: {
             id: 3,
-            name:'Microfibra 50-80 den'
+            name:'Microfiber 50-80 ден'
         },
         3: {
             id: 4,
-            name:'Coprenti 100-200 den'
+            name:'Теплые 100-200 ден'
         },
         4: {
             id: 5,
-            name:'Modellanti'
+            name:'Коррекционные'
         },
         5: {
             id: 6,
-            name:'Fashion'
+            name:'Мода'
         },
         6: {
             id: 7,
-            name:'Gambaletti'
+            name:'Чулки'
         },
         7: {
             id: 8,
-            name:'Autoreggenti'
+            name:'Гольфы'
         },
         8: {
             id: 9,
-            name:'Calzini'
+            name:'Носки'
         },
         9: {
             id: 10,
-            name:'Leggings'
+            name:'Легинсы'
         }
     };
 });
@@ -58,30 +61,48 @@ App.factory('Collections', function(){
     return {
         0: {
             id: 1,
-            name:'BASIC LINE',
+            name:'ЛИНИЯ БЭЙЗИК',
+            description: 'Качественные колготки и чулки на каждый день. Матовые и эластичные прекрасно обтягивают и поддерживают ногу, мягкие и шелковистые.',
             categories: [1,2,3,5,8]
         },
         1: {
             id: 2,
-            name:'CITY LINE',
+            name:'ЛИНИЯ СИТИ',
+            description: 'Колготки и чулки выполнены из пряжи высокого качества. Матовые и эластичные. Благодаря градуированному давлению прекрасно обтягивают и поддерживают ногу. Комфортные, мягкие и шелковистые.',
             categories: [1,2,3,4,5,6,7,8,9,10]
         },
         2: {
             id: 3,
-            name:'CITY LINE MEN',
+            name:'НОСКИ МУЖСКИЕ',
+            description: 'Прекрасно облегают ногу. Двойная, широкая, эластичная в тоже время мягкая и комфортная резинка',
             categories: [9]
         }
     };
 
 });
 
-App.controller('AppCtrl', function AppCtrl($scope) {
+App.factory('Tights', function(){
+    return {
+        0: {
+            id: 1,
+            collection_id: 1,
+            name:'ЛИНИЯ БЭЙЗИК',
+            categories: [1,2,3,5,8]
+        },
+        1: {
+            id: 2,
+            name:'ЛИНИЯ СИТИ',
+            categories: [1,2,3,4,5,6,7,8,9,10]
+        },
+        2: {
+            id: 3,
+            name:'НОСКИ МУЖСКИЕ',
+            categories: [9]
+        }
+    };
 
 });
 
-App.controller('TightsDetailCtrl', function TightsDetailCtrl(Tights) {
-    this.tights = Tights.get({tightsId:this.params.tightsId});
-});
 
 
 App.controller('CollectionsMenuCtrl', function CollectionsMenuCtrl($scope, Collections, Categories) {
@@ -92,15 +113,39 @@ App.controller('CollectionsMenuCtrl', function CollectionsMenuCtrl($scope, Colle
         collection.categories = _.map(collection.categories, function(category){
             cat = _.find(Categories, function(num){return num.id === category;});
             if(cat){
-                category = {name: cat.name};
+                category = {
+                    name: cat.name,
+                    id: cat.id
+                };
             } else {
-                category = {name: 'Category'+category};
+                category = {
+                    name: 'Category'+category,
+                    id: category
+                };
             }
             return category;
         });
 
         $scope.mainMenuItems[key] = collection;
     });
+});
+
+App.controller('CollectionDetailCtrl', function CollectionDetailCtrl($scope, $routeParams, Collections, Categories) {
+
+    if ($routeParams.collectionId){
+        $scope.collection = _.find(Collections, function(collection){return collection.id === $routeParams.collectionId;})
+    } else {
+        $scope.collection = {}
+    }
+
+    if ($routeParams.categoryId){
+        $scope.category = _.find(Categories, function(category){return category.id === $routeParams.collectionId;})
+    }
+});
+
+
+App.controller('TightsDetailCtrl', function TightsDetailCtrl($scope, Tights) {
+    this.tights = Tights.get({tightsId:this.params.tightsId});
 });
 
 
