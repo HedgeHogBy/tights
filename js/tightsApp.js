@@ -9,7 +9,7 @@ App.config(function ($routeProvider, $locationProvider) {
         when("/all-tights/:tightsId", {controller : "TightsDetailCtrl"}).
         otherwise({redirectTo : "/"});
 
-    $locationProvider.html5Mode(true);
+    //$locationProvider.html5Mode(true);
 });
 
 App.factory('Categories', function(){
@@ -131,15 +131,14 @@ App.controller('CollectionsMenuCtrl', function CollectionsMenuCtrl($scope, Colle
 });
 
 App.controller('CollectionDetailCtrl', function CollectionDetailCtrl($scope, $routeParams, Collections, Categories) {
-
     if ($routeParams.collectionId){
-        $scope.collection = _.find(Collections, function(collection){return collection.id === $routeParams.collectionId;})
+        $scope.collection = _.find(Collections, function(collection){return collection.id === parseInt($routeParams.collectionId, 10);})
     } else {
         $scope.collection = {}
     }
 
     if ($routeParams.categoryId){
-        $scope.category = _.find(Categories, function(category){return category.id === $routeParams.collectionId;})
+        $scope.category = _.find(Categories, function(category){return category.id === parseInt($routeParams.categoryId, 10);})
     }
 });
 

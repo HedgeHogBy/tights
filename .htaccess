@@ -333,6 +333,7 @@ FileETag None
   Options +FollowSymlinks
 # Options +SymLinksIfOwnerMatch
   RewriteEngine On
+  RewriteRule ^[^.]*$ index.html
 # RewriteBase /
 </IfModule>
 
