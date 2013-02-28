@@ -31,32 +31,13 @@
                         <li ng-repeat="collection in mainMenuItems">
                             <h3>{{collection.name}}</h3>
                             <ul class="sub-categories unstyled">
-                                <li ng-repeat="category in collection.categories"><a href="#/collection/{{collection.id}}/{{category.id}}">{{category.name}}</a></li>
+                                <li ng-repeat="category in collection.categories"><a href="#/collection/{{collection.id}}/category/{{category.id}}">{{category.name}}</a></li>
                             </ul>
                         </li>
                     </ul>
                 </nav>
                 <article id="category" class="span10">
                     <div ng-view></div>
-                    <aside class="span12" ng-controller="TightsDetailCtrl">
-                        <div id="tights-image" class="span4">
-                            <img src="img/LR_Ly3040_01evi.jpg"/>
-                        </div>
-                        <div id="tights-meta" class="span8">
-                            <div id="tights-description" class="span8">
-                                <h2 class="title offset1">EVITA 40 den (ЭВИТА 40 ден)</h2>
-                                <div id="tights-icons" class="offset1">
-                                    <ul class="specifications unstyled"></ul>
-                                    <ul class="colors unstyled"></ul>
-                                </div>
-                                <div class="material offset1">82% poliammide - 16% elastomero - 2% cotone</div>
-                                <div class="description offset1">Collant setificati elasticizzati. Punta nuda rinforzata. A vita bassa. Замечательные колготки.</div>
-                            </div>
-                            <div id="tights-size" class="span4">
-                                <img src="css/gfx/tab_measure.gif"/>
-                            </div>
-                        </div>
-                  </aside>
                 </article >
             </div>
         </div>

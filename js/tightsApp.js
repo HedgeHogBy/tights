@@ -9,7 +9,10 @@ App.config(function ($routeProvider, $locationProvider) {
             controller : "CollectionDetailCtrl",
             templateUrl: 'collection-detail.html'
         }).
-        when("/all-tights/:tightsId", {controller : "TightsDetailCtrl"}).
+        when("/collection/:collectionId/:categoryId/tights/:tightsId", {
+            controller : "CollectionDetailCtrl",
+            templateUrl: 'collection-detail.html'
+        }).
         otherwise({redirectTo : "/"});
 
     //$locationProvider.html5Mode(true);
@@ -84,22 +87,28 @@ App.factory('Collections', function(){
 
 });
 
-App.factory('Tights', function(){
+App.factory('AllTights', function(){
     return {
         0: {
             id: 1,
             collection_id: 1,
             name:'ЛИНИЯ БЭЙЗИК',
+            description: '',
+            consist: '',
             categories: [1,2,3,5,8]
         },
         1: {
             id: 2,
             name:'ЛИНИЯ СИТИ',
+            description: '',
+            consist: '',
             categories: [1,2,3,4,5,6,7,8,9,10]
         },
         2: {
             id: 3,
             name:'НОСКИ МУЖСКИЕ',
+            description: '',
+            consist: '',
             categories: [9]
         }
     };
@@ -133,7 +142,7 @@ App.controller('CollectionsMenuCtrl', function CollectionsMenuCtrl($scope, Colle
     });
 });
 
-App.controller('CollectionDetailCtrl', function CollectionDetailCtrl($scope, $routeParams, Collections, Categories) {
+App.controller('CollectionDetailCtrl', function CollectionDetailCtrl($scope, $routeParams, Collections, Categories, AllTights) {
     if ($routeParams.collectionId){
         $scope.collection = _.find(Collections, function(collection){return collection.id === parseInt($routeParams.collectionId, 10);})
     } else {
@@ -142,12 +151,16 @@ App.controller('CollectionDetailCtrl', function CollectionDetailCtrl($scope, $ro
 
     if ($routeParams.categoryId){
         $scope.category = _.find(Categories, function(category){return category.id === parseInt($routeParams.categoryId, 10);})
+    } else {
+        $scope.category = {}
+    }
+
+    if ($routeParams.tightsId){
+           $scope.tights = _.find(AllTights, function(tights){return tights.id === parseInt($routeParams.tightsId, 10);})
+    } else {
+        $scope.tights = {}
     }
 });
 
-
-App.controller('TightsDetailCtrl', function TightsDetailCtrl($scope, Tights) {
-    this.tights = Tights.get({tightsId:this.params.tightsId});
-});
 
 
