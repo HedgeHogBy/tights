@@ -5,13 +5,13 @@ App.config(function ($routeProvider, $locationProvider) {
         when("/", {
             template: '<h1> Добро пожаловать </h1>'
         }).
-        when("/collection/:collectionId/:categoryId", {
+        when("/collection/:collectionId/category/:categoryId", {
             controller : "CollectionDetailCtrl",
-            templateUrl: 'collection-detail.html'
+            templateUrl: 'tmpl/collection-detail.html'
         }).
-        when("/collection/:collectionId/:categoryId/tights/:tightsId", {
+        when("/collection/:collectionId/category/:categoryId/tights/:tightsId", {
             controller : "CollectionDetailCtrl",
-            templateUrl: 'collection-detail.html'
+            templateUrl: 'tmpl/collection-detail.html'
         }).
         otherwise({redirectTo : "/"});
 
