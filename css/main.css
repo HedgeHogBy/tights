@@ -144,12 +144,17 @@ h1, h2, h3, h4, h5, h6 {
             }
 
             #category #tights-submenu li{
-                height: 102px;
-                width: 79px;
-                background-size: contain;
-                background-repeat: no-repeat;
+                margin-right: 10px;
                 display: inline-block;
             }
+
+                #category #tights-submenu li a{
+                    height: 160px;
+                    width: 123px;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    display: inline-block;
+                }
 
             #category aside{
                 margin: 0;
