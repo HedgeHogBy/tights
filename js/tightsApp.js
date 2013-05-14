@@ -11,7 +11,7 @@ App.config(function ($routeProvider, $locationProvider) {
         }).
         when("/collection/:collectionId/category/:categoryId/tights/:tightsId", {
             controller : "CollectionDetailCtrl",
-            templateUrl: 'tmpl/collection-detail.html'
+            templateUrl: 'tmpl/tights-detail.html'
         }).
         otherwise({redirectTo : "/"});
 
@@ -213,22 +213,36 @@ App.controller('CollectionsMenuCtrl', function CollectionsMenuCtrl($scope, Colle
 });
 
 App.controller('CollectionDetailCtrl', function CollectionDetailCtrl($scope, $routeParams, Collections, Categories, Features, Colors, AllTights) {
-    if ($routeParams.collectionId){
-        $scope.collection = _.find(Collections, function(collection){return collection.id === parseInt($routeParams.collectionId, 10);})
+    var tightsArr = [];
+
+	if ($routeParams.collectionId){
+		var collectionId =  parseInt($routeParams.collectionId, 10);
+
+        $scope.collection = _.find(Collections, function(collection){return collection.id === collectionId;});
+	    tightsArr = _.filter(AllTights, function(tights){
+		    return tights.collection_id === collectionId;
+	    });
     } else {
         $scope.collection = {}
     }
 
     if ($routeParams.categoryId){
-        $scope.category = _.find(Categories, function(category){return category.id === parseInt($routeParams.categoryId, 10);})
+	    var categoryId =  parseInt($routeParams.categoryId, 10);
+
+        $scope.category = _.find(Categories, function(category){return category.id === categoryId;});
+	    tightsArr = _.filter(tightsArr, function(tights){
+		    return tights.category_id === categoryId;
+	    });
+
+	    $scope.tightsArr = tightsArr;
     } else {
         $scope.category = {}
     }
 
     if ($routeParams.tightsId){
-        $scope.tights = _.find(AllTights, function(tights){return tights.id === parseInt($routeParams.tightsId, 10);})
+	    var tightsId =  parseInt($routeParams.tightsId, 10);
 
-
+        $scope.tights = _.find(tightsArr, function(tights){return tights.id === tightsId;});
     } else {
         $scope.tights = {}
     }
