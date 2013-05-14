@@ -87,35 +87,105 @@ App.factory('Collections', function(){
 
 });
 
+App.factory('Features', function(){
+    return {
+        0: {
+            id: 1,
+            name:'Дышащая ткань',
+	        img:''
+        },
+        1: {
+            id: 2,
+            name:'Высокая талия',
+            img:''
+        },
+	    2: {
+            id: 3,
+            name:'Низкая талия',
+            img:''
+        },
+	    3: {
+            id: 4,
+            name:'XL',
+            img:''
+        }
+    };
+});
+
+App.factory('Colors', function(){
+    return {
+        0: {
+            id: 1,
+            name:'Noisette',
+	        color_code:'C2867A'
+        },
+        1: {
+            id: 2,
+	        name:'Visone',
+            color_code:'A67F58'
+        },
+	    2: {
+            id: 3,
+            name:'Bronzo',
+			color_code:'795B45'
+	    },
+	    3: {
+            id: 4,
+            name:'Nero',
+			color_code:'000000'
+	    }
+    };
+});
+
 App.factory('AllTights', function(){
     return {
         0: {
             id: 1,
             collection_id: 1,
-            name:'ЛИНИЯ БЭЙЗИК',
-            description: '',
-            consist: '',
-            categories: [1,2,3,5,8]
+	        category_id: 1,
+            name:'FLORÉAL - ФЛОРЕАЛЬ 20 ден',
+            description: 'Колготки шелковистые, эластичные с х/б ластовицей и плоскими швами. Мягкие и комфортные штанишки. Укрепленный прозрачный мысок',
+            consist: '82% полиамид - 16% эластомер - 2% хлопок',
+	        img: 'BL_Ly1020_01flo',
+	        features: [1,2,4],
+	        colors: [1,2,3,4]
         },
         1: {
-            id: 2,
-            name:'ЛИНИЯ СИТИ',
-            description: '',
-            consist: '',
-            categories: [1,2,3,4,5,6,7,8,9,10]
+	        id: 2,
+			collection_id: 1,
+			category_id: 1,
+			name:'CHARME - ШАРМ 20 ден',
+			description: 'Колготки  с регулируемой высотой талии, шелковистые, эластичные с х/б ластовицей и плоскими швами. Мягкие и комфортные штанишки. Укрепленный прозрачный мысок.',
+			consist: '82% полиамид - 16% эластомер - 2% хлопок',
+			img: 'BL_Ly1020_02cha20',
+			features: [1,3],
+			colors: [1,2,3,4]
         },
-        2: {
-            id: 3,
-            name:'НОСКИ МУЖСКИЕ',
-            description: '',
-            consist: '',
-            categories: [9]
-        }
+	    2: {
+			id: 3,
+			collection_id: 1,
+			category_id: 2,
+			name:'LA MANCHE - ЛА-МАНШ 40 ден',
+			description: 'Колготки шелковистые, эластичные с х/б ластовицей и плоскими швами. Мягкие и комфортные штанишки. Укрепленный прозрачный мысок',
+			consist: '82% полиамид - 16% эластомер - 2% хлопок',
+			img: 'BL_Ly3040_01lam',
+			features: [1,2,4],
+			colors: [1,2,3,4]
+		},
+	    3: {
+			id: 4,
+			collection_id: 1,
+			category_id: 2,
+			name:'CHARME -  ШАРМ 40 ден',
+			description: 'Колготки  с регулируемой высотой талии, шелковистые, эластичные с х/б ластовицей и плоскими швами. Мягкие и комфортные штанишки. Укрепленный прозрачный мысок.',
+			consist: '82% полиамид - 16% эластомер - 2% хлопок',
+			img: 'BL_Ly3040_02cha40',
+			features: [1,3],
+			colors: [1,2,3,4]
+		}
     };
 
 });
-
-
 
 App.controller('CollectionsMenuCtrl', function CollectionsMenuCtrl($scope, Collections, Categories) {
     var cat;
@@ -142,7 +212,7 @@ App.controller('CollectionsMenuCtrl', function CollectionsMenuCtrl($scope, Colle
     });
 });
 
-App.controller('CollectionDetailCtrl', function CollectionDetailCtrl($scope, $routeParams, Collections, Categories, AllTights) {
+App.controller('CollectionDetailCtrl', function CollectionDetailCtrl($scope, $routeParams, Collections, Categories, Features, Colors, AllTights) {
     if ($routeParams.collectionId){
         $scope.collection = _.find(Collections, function(collection){return collection.id === parseInt($routeParams.collectionId, 10);})
     } else {
@@ -156,7 +226,9 @@ App.controller('CollectionDetailCtrl', function CollectionDetailCtrl($scope, $ro
     }
 
     if ($routeParams.tightsId){
-           $scope.tights = _.find(AllTights, function(tights){return tights.id === parseInt($routeParams.tightsId, 10);})
+        $scope.tights = _.find(AllTights, function(tights){return tights.id === parseInt($routeParams.tightsId, 10);})
+
+
     } else {
         $scope.tights = {}
     }
