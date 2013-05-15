@@ -20,8 +20,17 @@
         <div id="tights-description" class="span8">
             <h2 class="title offset1">{{tights.name}}</h2>
             <div id="tights-icons" class="offset1">
-                <ul class="specifications unstyled"></ul>
-                <ul class="colors unstyled"></ul>
+                <ul class="features unstyled">
+                    <li ng-repeat="feature in tights.featuresDetails">
+                        <img src="../img/features/{{feature.img}}.gif" alt="{{feature.name}}"/>
+                    </li>
+                </ul>
+                <ul class="colors unstyled">
+                    <li ng-repeat="color in tights.colorsDetails">
+                        <div class="color" style="background-color: #{{color.code}};"></div>
+                        <div>{{color.name}}</div>
+                    </li>
+                </ul>
             </div>
             <div class="material offset1">{{tights.consist}}</div>
             <div class="description offset1">{{tights.description}}</div>

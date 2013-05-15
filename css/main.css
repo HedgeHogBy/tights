@@ -182,6 +182,18 @@ h1, h2, h3, h4, h5, h6 {
                     padding: 2% 0 5%;
                 }
 
+                    #category #tights-description #tights-icons{}
+
+                        #category #tights-description .features{}
+
+                            #category #tights-description .features li,
+                            #category #tights-description .colors li{
+                                display: inline-block;
+                                margin-left: 15px;
+                            }
+
+                                #category #tights-description .features li img{height: 60px; width: 60px;}
+                                #category #tights-description .colors li div{width: 52px; height: 48px;}
 
 /* Large desktop */
 @media (min-width: 1200px) {

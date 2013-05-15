@@ -69,7 +69,7 @@ App.factory('Collections', function(){
             id: 1,
             name:'ЛИНИЯ БЭЙЗИК',
             description: 'Качественные колготки и чулки на каждый день. Матовые и эластичные прекрасно обтягивают и поддерживают ногу, мягкие и шелковистые.',
-            categories: [1,2,3,5,8]
+            categories: [1,2,3,5,7]
         },
         1: {
             id: 2,
@@ -132,32 +132,32 @@ App.factory('Colors', function(){
         0: {
             id: 1,
             name:'Noisette',
-	        color_code:'C2867A'
+	        code:'C2867A'
         },
         1: {
             id: 2,
 	        name:'Visone',
-            color_code:'A67F58'
+            code:'A67F58'
         },
 	    2: {
             id: 3,
             name:'Bronzo',
-			color_code:'795B45'
+			code:'795B45'
 	    },
 	    3: {
             id: 4,
             name:'Nero',
-			color_code:'000000'
+			code:'000000'
 	    },
 	    4: {
             id: 5,
             name:'Caffé',
-			color_code:'5d391e'
+			code:'5d391e'
 	    },
 	    5: {
             id: 6,
             name:'Bianco',
-			color_code:'0000'
+			code:'ffffff'
 	    }
     };
 });
@@ -282,7 +282,14 @@ App.controller('CollectionsMenuCtrl', function CollectionsMenuCtrl($scope, Colle
 });
 
 App.controller('CollectionDetailCtrl', function CollectionDetailCtrl($scope, $routeParams, Collections, Categories, Features, Colors, AllTights) {
-    var tightsArr = [];
+    var tightsArr = [],
+	    expandArray = function(idsArr, detailsArr){
+		    return _.map(idsArr, function(ID){
+	            return _.find(detailsArr, function(details){
+	                return ID == details.id;
+	            });
+		    });
+	    };
 
 	if ($routeParams.collectionId){
 		var collectionId =  parseInt($routeParams.collectionId, 10);
@@ -309,9 +316,18 @@ App.controller('CollectionDetailCtrl', function CollectionDetailCtrl($scope, $ro
     }
 
     if ($routeParams.tightsId){
-	    var tightsId =  parseInt($routeParams.tightsId, 10);
+	    var tightsId =  parseInt($routeParams.tightsId, 10),
+		    tights = _.find(tightsArr, function(tights){return tights.id === tightsId;});
 
-        $scope.tights = _.find(tightsArr, function(tights){return tights.id === tightsId;});
+	        if(_.isEmpty(tights.featuresDetails)){
+		        tights.featuresDetails = expandArray(tights.features, Features);
+	        }
+
+	        if(_.isEmpty(tights.colorsDetails)){
+		        tights.colorsDetails = expandArray(tights.colors, Colors);
+	        }
+
+        $scope.tights = tights;
     } else {
         $scope.tights = {}
     }
