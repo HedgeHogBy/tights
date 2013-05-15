@@ -92,22 +92,37 @@ App.factory('Features', function(){
         0: {
             id: 1,
             name:'Дышащая ткань',
-	        img:''
+	        img:'sy37_tTrasp'
         },
         1: {
             id: 2,
             name:'Высокая талия',
-            img:''
+            img:'sy03_coul'
         },
 	    2: {
             id: 3,
             name:'Низкая талия',
-            img:''
+            img:'sy08_vbCoul'
         },
 	    3: {
             id: 4,
             name:'XL',
-            img:''
+            img:'XL'
+        },
+	    4: {
+            id: 5,
+            name:'Нет описания',
+            img:'sy01_basic'
+        },
+	    5: {
+            id: 6,
+            name:'Нет описания',
+            img:'sy07_vbTal'
+        },
+	    6: {
+            id: 7,
+            name:'Нет описания',
+            img:'sy23pbasic'
         }
     };
 });
@@ -133,6 +148,16 @@ App.factory('Colors', function(){
             id: 4,
             name:'Nero',
 			color_code:'000000'
+	    },
+	    4: {
+            id: 5,
+            name:'Caffé',
+			color_code:'5d391e'
+	    },
+	    5: {
+            id: 6,
+            name:'Bianco',
+			color_code:'0000'
 	    }
     };
 });
@@ -182,6 +207,50 @@ App.factory('AllTights', function(){
 			img: 'BL_Ly3040_02cha40',
 			features: [1,3],
 			colors: [1,2,3,4]
+		},
+	    4: {
+			id: 5,
+			collection_id: 1,
+			category_id: 3,
+			name:'MARSEILLE - МАРСЕЛЬ 50 ден',
+			description: 'Колготки матовые,  эластичные, шелковистые, с плоскими швами.',
+			consist: '82% полиамид - 18% эластомер',
+			img: 'BL_Mc5080_01mar',
+			features: [1,5],
+			colors: [5,4]
+		},
+	    5: {
+			id: 6,
+			collection_id: 1,
+			category_id: 3,
+			name:'ANCY - АНСИ 50 ден',
+			description: 'Колготки матовые, эластичные, шелковистые, с х/б ластовицей и плоскими швами. Регулируемая высота талии.',
+			consist: '82% полиамид - 16% эластомер - 2% хлопок',
+			img: 'BL_Mc5080_02anc',
+			features: [1,6],
+			colors: [5,4]
+		},
+	    6: {
+			id: 7,
+			collection_id: 1,
+			category_id: 5,
+			name:'CORSICA - КОРСИКА 40 ден',
+			description: 'Колготки 40 ден с микромассажным, антицеллюлитным эффектом, матовые, шелковистые, эластичные с х/б ластовицей и плоскими швами. Высокоэластичные штанишки 100 ден утягивают бедра и живот, делают фигуру более стройной.',
+			consist: '82% полиамид - 16% эластомер - 2% хлопок',
+			img: 'BL_Mdl_01cor',
+			features: [1,2,7],
+			colors: [1,2,3,4]
+		},
+	    7: {
+			id: 8,
+			collection_id: 1,
+			category_id: 7,
+			name:'LA ROCHELLE - Л. РОШЕЛЬ 20 ден',
+			description: 'Чулки с кружевной резинкой 7 см и двойной силиконовой поддержкой',
+			consist: '82% полиамид - 18% эластомер',
+			img: 'BL_Ar_01lar',
+			features: [1,7],
+			colors: [6,2,3,4]
 		}
     };
 
