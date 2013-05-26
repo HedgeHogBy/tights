@@ -1,4 +1,4 @@
-var App = angular.module('tightsApp', []);
+var App = angular.module('tightsApp', ['ngResource']);
 
 App.config(function ($routeProvider, $locationProvider) {
     $routeProvider.
@@ -18,7 +18,10 @@ App.config(function ($routeProvider, $locationProvider) {
     //$locationProvider.html5Mode(true);
 });
 
-App.factory('Categories', function(){
+//http://stackoverflow.com/questions/12942173/using-json-object-from-rest-service-in-angularjs
+//http://docs.angularjs.org/api/ngResource.$resource
+
+App.factory('Categories', function($resource){
     return {
         0: {
             id: 1,
@@ -63,7 +66,7 @@ App.factory('Categories', function(){
     };
 });
 
-App.factory('Collections', function(){
+App.factory('Collections', function($resource){
     return {
         0: {
             id: 1,
@@ -87,7 +90,7 @@ App.factory('Collections', function(){
 
 });
 
-App.factory('Features', function(){
+App.factory('Features', function($resource){
     return {
         0: {
             id: 1,
@@ -127,7 +130,7 @@ App.factory('Features', function(){
     };
 });
 
-App.factory('Colors', function(){
+App.factory('Colors', function($resource){
     return {
         0: {
             id: 1,
@@ -162,7 +165,7 @@ App.factory('Colors', function(){
     };
 });
 
-App.factory('AllTights', function(){
+App.factory('AllTights', function($resource){
     return {
         0: {
             id: 1,
