@@ -3,7 +3,7 @@ var App = angular.module('tightsApp', ['ngResource']);
 App.config(function ($routeProvider, $locationProvider) {
     $routeProvider.
         when("/", {
-            template: '<h1> Добро пожаловать </h1>'
+		    templateUrl: 'tmpl/home-page.html'
         }).
         when("/collection/:collectionId/category/:categoryId", {
             controller : "CollectionDetailCtrl",
@@ -12,6 +12,24 @@ App.config(function ($routeProvider, $locationProvider) {
         when("/collection/:collectionId/category/:categoryId/tights/:tightsId", {
             controller : "CollectionDetailCtrl",
             templateUrl: 'tmpl/tights-detail.html'
+        }).
+	    when("/admin-panel", {
+		    templateUrl: 'tmpl/admin-page.html'
+        }).
+	    when("/admin/collections", {
+		    templateUrl: 'tmpl/admin-collections.html'
+        }).
+	    when("/admin/categories", {
+		    templateUrl: 'tmpl/admin-categories.html'
+        }).
+	    when("/admin/tights", {
+		    templateUrl: 'tmpl/admin-tights.html'
+        }).
+	    when("/admin/features", {
+		    templateUrl: 'tmpl/admin-features.html'
+        }).
+	    when("/admin/colors", {
+		    templateUrl: 'tmpl/admin-colors.html'
         }).
         otherwise({redirectTo : "/"});
 
