@@ -17,18 +17,23 @@ tightsApp.config(function ($routeProvider, $locationProvider) {
 		    templateUrl: 'tmpl/admin/admin-page.html'
         }).
 	    when("/admin/collections", {
+            controller : "adminCollectionsCtrl",
 		    templateUrl: 'tmpl/admin/admin-collections.html'
         }).
 	    when("/admin/categories", {
+            controller : "adminCategoriesCtrl",
 		    templateUrl: 'tmpl/admin/admin-categories.html'
         }).
 	    when("/admin/tights", {
+            controller : "adminCategoriesCtrl",
 		    templateUrl: 'tmpl/admin/admin-tights.html'
         }).
 	    when("/admin/features", {
+            controller : "adminCategoriesCtrl",
 		    templateUrl: 'tmpl/admin/admin-features.html'
         }).
 	    when("/admin/colors", {
+            controller : "adminCategoriesCtrl",
 		    templateUrl: 'tmpl/admin/admin-colors.html'
         }).
         otherwise({redirectTo : "/"});
