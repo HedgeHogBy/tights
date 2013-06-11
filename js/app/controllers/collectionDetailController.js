@@ -1,4 +1,4 @@
-App.controller('CollectionDetailCtrl', function CollectionDetailCtrl($scope, $routeParams, Collections, Categories, Features, Colors, AllTights) {
+tightsApp.controller('CollectionDetailCtrl', function CollectionDetailCtrl($scope, $routeParams, Collections, Categories, Features, Colors, AllTights) {
     var tightsArr = [],
 	    expandArray = function(idsArr, detailsArr){
 		    return _.map(idsArr, function(ID){

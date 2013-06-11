@@ -1,4 +1,4 @@
-App.factory('AllTights', function($resource){
+tightsApp.factory('AllTights', function($resource){
     return {
         0: {
             id: 1,

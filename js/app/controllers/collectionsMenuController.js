@@ -1,4 +1,4 @@
-App.controller('CollectionsMenuCtrl', function CollectionsMenuCtrl($scope, Collections, Categories) {
+tightsApp.controller('CollectionsMenuCtrl', function CollectionsMenuCtrl($scope, Collections, Categories) {
     var cat;
     $scope.mainMenuItems = [];
 

@@ -1,6 +1,6 @@
-var App = angular.module('tightsApp', ['ngResource']);
+var tightsApp = angular.module('tightsApp', ['ngResource']);
 
-App.config(function ($routeProvider, $locationProvider) {
+tightsApp.config(function ($routeProvider, $locationProvider) {
     $routeProvider.
         when("/", {
 		    templateUrl: 'tmpl/home-page.html'
