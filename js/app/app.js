@@ -16,7 +16,7 @@ tightsApp.config(function ($routeProvider, $locationProvider) {
 	    when("/admin-panel", {
 		    templateUrl: 'tmpl/admin/admin-page.html' //todo add here controller with resources object
         }).
-	    when("/admin/list/:type", {
+	    when("/admin/:type/list", {
             controller : "adminListCtrl",
 		    templateUrl: 'tmpl/admin/admin-list.html'
         }).
