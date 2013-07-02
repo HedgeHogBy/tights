@@ -20,6 +20,10 @@ tightsApp.config(function ($routeProvider, $locationProvider) {
             controller : "adminListCtrl",
 		    templateUrl: 'tmpl/admin/admin-list.html'
         }).
+	    when("/admin/:type/item/:itemID", {
+            controller : "adminItemCtrl",
+		    templateUrl: 'tmpl/admin/admin-item.html'
+        }).
         otherwise({redirectTo : "/"});
 
     //$locationProvider.html5Mode(true);
