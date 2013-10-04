@@ -1,4 +1,4 @@
-var tightsApp = angular.module('tightsApp', ['ngResource']);
+var tightsApp = angular.module('tightsApp', ['ngResource', 'ngRoute']);
 
 tightsApp.config(function ($routeProvider, $locationProvider) {
     $routeProvider.
