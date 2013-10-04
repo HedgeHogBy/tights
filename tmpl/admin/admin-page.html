@@ -3,10 +3,8 @@
 <div>
     <h3>Выберите раздел для редактирования:</h3>
     <ul>
-        <li><a href="#/admin/tights/list">Колготы</a></li>
-        <li><a href="#/admin/collections/list">Коллекции</a></li>
-        <li><a href="#/admin/categories/list">Категории</a></li>
-        <li><a href="#/admin/features/list">Особенности</a></li>
-        <li><a href="#/admin/colors/list">Цвета</a></li>
+        <li ng-repeat="resource in resources">
+            <a href="#/admin/{{resource.type}}/list">{{resource.name}}</a>
+        </li>
     </ul>
 </div>

@@ -14,15 +14,16 @@ tightsApp.config(function ($routeProvider, $locationProvider) {
             templateUrl: 'tmpl/tights-detail.html'
         }).
 	    when("/admin-panel", {
+            controller : "adminDashboardCtrl",
 		    templateUrl: 'tmpl/admin/admin-page.html' //todo add here controller with resources object
         }).
 	    when("/admin/:type/list", {
             controller : "adminListCtrl",
 		    templateUrl: 'tmpl/admin/admin-list.html'
         }).
-	    when("/admin/:type/item/:itemID", {
-            controller : "adminItemCtrl",
-		    templateUrl: 'tmpl/admin/admin-item.html'
+	    when("/admin/categories/:id", {
+            controller : "adminCategoriesCtrl",
+		    templateUrl: 'tmpl/admin/admin-categories-detail.html'
         }).
         otherwise({redirectTo : "/"});
 

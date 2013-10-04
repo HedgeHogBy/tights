@@ -8,5 +8,9 @@ tightsApp.controller('adminItemCtrl', function adminItemCtrl($scope, $routeParam
                 return resource.type === resourceType;
             }
         );
+
+        $scope.item = _.find($scope.list.items, function(item){
+            return item.id == resourceId;
+        });
     }
 });
