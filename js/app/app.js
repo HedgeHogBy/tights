@@ -21,9 +21,9 @@ tightsApp.config(function ($routeProvider, $locationProvider) {
             controller : "adminListCtrl",
 		    templateUrl: 'tmpl/admin/admin-list.html'
         }).
-	    when("/admin/categories/:id", {
-            controller : "adminCategoriesDetailCtrl",
-		    templateUrl: 'tmpl/admin/admin-categories-detail.html'
+        when("/admin/:type/:id", {
+            controller : "adminItemDetailCtrl",
+            templateUrl: 'tmpl/admin/admin-item-detail.html'
         }).
         otherwise({redirectTo : "/"});
 

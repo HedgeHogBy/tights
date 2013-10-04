@@ -1,0 +1,14 @@
+<h1>{{item.name}}</h1>
+<form name="itemEditForm" novalidate>
+    <dl class="dl-horizontal">
+        <dt>
+            <label for="itemNameId">Название:</label>
+        </dt>
+        <dd>
+            <input name="itemName" id="itemNameId" type="text" required ng-model="item.name" maxlength="255" />
+        </dd>
+    </dl>
+    <button class="btn btn-primary" ng-disabled="!itemEditForm.$valid" ng-click="saveItemEditForm(itemEditForm)">
+        Сохранить
+    </button>
+</form>
