@@ -15,14 +15,14 @@ tightsApp.config(function ($routeProvider, $locationProvider) {
         }).
 	    when("/admin-panel", {
             controller : "adminDashboardCtrl",
-		    templateUrl: 'tmpl/admin/admin-page.html' //todo add here controller with resources object
+		    templateUrl: 'tmpl/admin/admin-page.html'
         }).
 	    when("/admin/:type/list", {
             controller : "adminListCtrl",
 		    templateUrl: 'tmpl/admin/admin-list.html'
         }).
 	    when("/admin/categories/:id", {
-            controller : "adminCategoriesCtrl",
+            controller : "adminCategoriesDetailCtrl",
 		    templateUrl: 'tmpl/admin/admin-categories-detail.html'
         }).
         otherwise({redirectTo : "/"});
